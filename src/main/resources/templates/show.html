@@ -3,8 +3,8 @@
 <head>
     <title>SpringBoot模版渲染</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/show.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/show.js}"></script>
 </head>
 <body>
 <img class="img-responsive" alt="App Logo" th:src="@{/image/logo.jpeg}" height="50px" width="50px"/>
