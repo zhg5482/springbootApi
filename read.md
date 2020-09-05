@@ -6,6 +6,7 @@ http://www.matools.com/api/java8
 https://www.cnblogs.com/superslow/p/9113551.html
 #Thymeleaf
 https://www.jianshu.com/p/a842e5b5012e
+https://www.jianshu.com/p/908b48b10702
 #Spring Boot 静态资源处理
 https://blog.csdn.net/catoop/article/details/50501706
 #Springboot+Thymeleaf中常用的th标签

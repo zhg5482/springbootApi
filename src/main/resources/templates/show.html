@@ -4,10 +4,16 @@
     <title>SpringBoot模版渲染</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/show.js"></script>
 </head>
 <body>
 <img class="img-responsive" alt="App Logo" th:src="@{/image/logo.jpeg}" height="50px" width="50px"/>
 <p th:text="'用户ID：' + ${member.id}"/>
 <p th:text="'用户名称：' + ${member.username}"/>
+<video width="600" height="400" align="center" controls>
+    <source th:src="@{/image/video.mp4}" type="video/mp4">
+
+    您的浏览器不支持 HTML5 video 标签。
+</video>
 </body>
 </html>
