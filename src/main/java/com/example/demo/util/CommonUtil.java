@@ -4,6 +4,8 @@ import nl.bitwalker.useragentutils.UserAgent;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Component;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
@@ -50,6 +52,30 @@ public final class CommonUtil {
      */
     public Long create_timestamp() {
         return System.currentTimeMillis() / 1000;
+    }
 
+    /**
+     * 密码加密
+     * @param password
+     * @return
+     */
+    public String passwordToHash(String password) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            digest.update(password.getBytes());
+            byte[] src = digest.digest();
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for (byte aSrc : src) {
+                String s = Integer.toHexString(aSrc & 0xFF);
+                if (s.length() < 2) {
+                    stringBuilder.append('0');
+                }
+                stringBuilder.append(s);
+            }
+            return stringBuilder.toString();
+        } catch (NoSuchAlgorithmException ignore) {
+        }
+        return null;
     }
 }

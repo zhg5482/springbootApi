@@ -26,3 +26,5 @@ https://www.cnblogs.com/huhx/p/13228766.html
 https://www.cnblogs.com/jtlgb/p/12372758.html
 https://recomm.cnblogs.com/blogpost/11550891
 https://www.cnblogs.com/zhangpeng8888/p/12702305.html
+#字节数组转16进制字符串
+https://my.oschina.net/u/347386/blog/182717

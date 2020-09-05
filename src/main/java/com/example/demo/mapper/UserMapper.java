@@ -12,4 +12,8 @@ public interface UserMapper {
 
     @Select("select * from user where username=#{username} and password=#{password}")
     User getUser(@Param("username") String username, @Param("password") String password);
+
+    Boolean AddUser(User user);
+
+    User findOne(User user);
 }

@@ -5,10 +5,7 @@ import com.example.demo.entity.User;
 import com.example.demo.handler.LoginRequired;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,5 +24,14 @@ public class UserController extends ApiController{
             return servletUtil.renderString(response, JSON.toJSONString(resultUtil.error(responseCode.USER_GET_INFO_ERROR)));
         }
         return servletUtil.renderString(response, JSON.toJSONString(resultUtil.success(responseCode.USER_GET_INFO_SUCCESS,user)));
+    }
+
+    @PostMapping("add")
+    public String AddUser(User user, HttpServletResponse response){
+        User addUser = userService.AddUser(user);
+        if (addUser == null) {
+            return servletUtil.renderString(response, JSON.toJSONString(resultUtil.error(responseCode.USER_ADD_ERROR)));
+        }
+        return servletUtil.renderString(response, JSON.toJSONString(resultUtil.success(responseCode.USER_ADD_SUCCESS,addUser)));
     }
 }

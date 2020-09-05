@@ -23,6 +23,9 @@ public enum ResponseCode {
 
     USER_GET_INFO_SUCCESS(20005,"获取数据成功"),
     USER_GET_INFO_ERROR(20006,"获取数据失败"),
+
+    USER_ADD_SUCCESS(20007,"用户添加成功"),
+    USER_ADD_ERROR(20008,"用户添加失败"),
             ;
 
     ResponseCode(Integer code, String msg) {

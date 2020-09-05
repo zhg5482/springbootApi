@@ -24,7 +24,7 @@ public class AuthorityService extends BaseService{
     public Object Login(String username, String password,String userAgent) {
         User user = userMapper.getUser(username,password);
         JSONObject obj = new JSONObject();
-        if (null != user && user.getPassword().equals(password)) {
+        if (null != user && user.getPassword().equals(commonUtil.passwordToHash(password))) {
             String token = commonUtil.generateToken(userAgent, username);
             Boolean save = redisUtil.set(token,JSONObject.toJSONString(user), Constants.TOKEN_TIMEOUT);
             if (save) {
