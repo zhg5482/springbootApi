@@ -12,6 +12,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
 
+    @Override
     public User GetUserById(int id) {
         User user = userMapper.GetUserById(id);
         return user;
