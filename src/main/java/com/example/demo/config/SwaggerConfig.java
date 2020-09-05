@@ -1,5 +1,6 @@
 package com.example.demo.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -19,6 +20,11 @@ import java.util.List;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+
+    //是否开启swagger，正式环境一般是需要关闭的，可根据springboot的多环境配置进行设置
+    @Value(value = "${swagger.enabled}")
+    Boolean swaggerEnabled;
+
     /**
      * Every Docket bean is picked up by the swagger-mvc framework - allowing for multiple
      * swagger groups i.e. same code base multiple swagger resource listings.
@@ -40,12 +46,13 @@ public class SwaggerConfig {
                 .required(false).build(); //header中的token参数非必填，传空也可以
         pars.add(ticketPar.build());    //根据每个方法名也知道当前方法在设置什么参数
 
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo())
+                //是否开启
+                .enable(swaggerEnabled).select()
+                //扫描的路径包
                 .apis(RequestHandlerSelectors.any())
                 .build()
-                .globalOperationParameters(pars)
-                .apiInfo(apiInfo());
+                .globalOperationParameters(pars);
     }
 
     ApiInfo apiInfo() {
