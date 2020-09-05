@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SpringBoot模版渲染</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<img class="img-responsive" alt="App Logo" th:src="@{/image/logo.jpeg}" height="50px" width="50px"/>
+<p th:text="'用户ID：' + ${member.id}"/>
+<p th:text="'用户名称：' + ${member.username}"/>
+</body>
+</html>
