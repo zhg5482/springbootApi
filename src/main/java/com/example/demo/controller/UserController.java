@@ -1,0 +1,31 @@
+package com.example.demo.controller;
+
+import com.alibaba.fastjson.JSON;
+import com.example.demo.entity.User;
+import com.example.demo.handler.LoginRequired;
+import com.example.demo.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletResponse;
+
+@RestController
+@RequestMapping("/user")
+public class UserController extends ApiController{
+
+    @Autowired
+    private UserService userService;
+
+    @LoginRequired
+    @GetMapping("getUser/{id}")
+    public String GetUser(@PathVariable int id,HttpServletResponse response){
+        User user = userService.GetUserById(id);
+        if (null == user) {
+            return servletUtil.renderString(response, JSON.toJSONString(resultUtil.error(responseCode.USER_GET_INFO_ERROR)));
+        }
+        return servletUtil.renderString(response, JSON.toJSONString(resultUtil.success(responseCode.USER_GET_INFO_SUCCESS,user)));
+    }
+}
