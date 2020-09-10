@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 用户控制类
+ */
 @RestController
 @RequestMapping("/user")
 public class UserController extends ApiController{

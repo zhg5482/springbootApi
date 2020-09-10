@@ -10,8 +10,12 @@ import org.springframework.stereotype.Service;
 @Service("userService")
 public class UserServiceImpl implements UserService  {
 
-    @Autowired
-    UserMapper userMapper;
+    private UserMapper userMapper;
+
+    @Autowired //spring 4.0开始就不推荐使用属性注入，改为推荐构造器注入和setter注入。
+    public void setUserMapper(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
 
     @Autowired
     CommonUtil commonUtil;

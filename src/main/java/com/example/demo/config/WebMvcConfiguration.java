@@ -8,7 +8,6 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
-
 @Configuration
 //这个注解很重要啊，不写不生效
 @Order(Ordered.HIGHEST_PRECEDENCE)
