@@ -1,6 +1,6 @@
-# springbootApi
+#springbootApi
 springboot api mybatis
-######目录结构:
+#####目录结构:
 ######├── pom.xml 
 ######├── read.md
 ######├── src  主程序目录
@@ -203,3 +203,20 @@ https://my.oschina.net/u/347386/blog/182717
 #定时任务
 https://www.cnblogs.com/mmzs/p/10161936.html
 #oss
+#nginx
+#mongodb
+#rabbitmq
+#elasticsearch
+#微信公众号
+#logstash
+#ffmpeg
+#grpc
+#supervisor
+#高可用集群 [nginx、lvs、keepalived、f5、DNS轮询]
+#element
+#直播(nginx(rtmp 文档 支持回调接口)、ffmpeg) 点播 
+#websocket[轮训 长轮训 websocket]
+#gitlab
+#创建git仓库
+#learnku
+#layer
